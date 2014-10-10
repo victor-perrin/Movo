@@ -1,0 +1,180 @@
+<head>
+    <title>Movo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css"
+          href="http://netdna.bootstrapcdn.com/bootswatch/3.0.3/yeti/bootstrap.min.css">
+</head>
+
+<body>
+</body>
+
+<template name="layout">
+    <section class="container-fluid">
+        {{>messages}}
+        <section id="forms" class="row">
+            {{> loginForm}}
+            {{> registerForm}}
+        </section>
+    </section>
+    {{> header}}
+    <div>
+        {{> yield}}
+    </div>
+</template>
+
+<template name="research">
+    <input type="search" id="search_bar" placeholder="Start typing some cool trek you'd dream of..."/>
+
+</template>
+
+<template name="lastTreks">
+        {{#if isLogged}}
+        {{>myTreks}}
+        {{else}}
+        {{>lastTreksPutOnline}}
+        {{/if}}
+</template>
+
+<template name="myTreks">
+    <section id="myTreks" class="movo_container row">
+    <h4>My Treks</h4>
+    {{#if items}}
+    <table>
+        {{#each items}}
+        {{>myTrek}}
+        {{/each}}
+    </table>
+    {{>newTrekButton}}
+    {{else}}
+        {{>letsCreateANewTrek}}
+    {{/if}}
+    </section>
+</template>
+
+<template name="myTrek">
+    <tr class="myTrek" id="my_trek_{{_id}}">
+        <td class="trekname">{{trekName}}</td>
+    </tr>
+</template>
+
+<template name="letsCreateANewTrek">
+    <p id="lets_create_a_new_trek">You don't have any trek yet, let's create a new one !</p>
+</template>
+
+<template name="lastTreksPutOnline">
+    <section id="lastTrek" class="movo_container row">
+      <h4>Latest Trek put online</h4>
+        {{#if items}}
+        <div id="last_treks_found">
+            <table class="table">
+                {{#each items}}
+                {{>trek_no_detail}}
+                {{/each}}
+            </table>
+        </div>
+        {{else}}
+        <div id="last_no_treks_found">
+            No trek found yet.
+        </div>
+        {{/if}}
+    </section>
+</template>
+
+<template name="treks">
+    {{#each items}}
+        {{>trek}}
+    {{/each}}
+</template>
+
+<template name="treks_search">
+    {{#if items}}
+    <div id="search_treks_found">
+        <table class="table">
+            {{#each items}}
+        {{>trek}}
+        {{/each}}
+        </table>
+    </div>
+    {{else}}
+    <div id="search_no_treks_found">
+        No trek found yet.
+    </div>
+    {{/if}}
+</template>
+
+<template name="home">
+    <section class="container-fluid">
+        <div class="main row">
+            {{>left_panel}}
+            {{>right_panel}}
+        </div>
+        {{>credits}}
+    </section>
+</template>
+
+<template name="right_panel">
+        <section id="right_panel" class="col-md-6 col-xs-12">
+            <section id="research" class="movo_container">
+                <h4>Let's do some treck tracking</h4>
+                {{> research}}
+                {{> treks_search}}
+            </section>
+        </section>
+</template>
+
+<template name="left_panel">
+    <section id="left_panel" class="col-md-6 col-sm-12 col-xs-12">
+        {{>lastTreks}}
+        <section id="treks_options" class="row">
+            {{>bestTodos}}
+            {{>bestTreks}}
+        </section>
+    </section>
+</template>
+
+<template name="bestTodos">
+    <section id="topTodo" class="movo_container col-md-6 col-sm-12 col-xs-12"><h4> Best ToDo place ever</h4>
+    </section>
+</template>
+
+<template name="bestTreks">
+    <section id="topTrek" class="movo_container col-md-6 col-sm-12 col-xs-12">
+        <h4> Best Trek Ever</h4>
+        {{#if items}}
+        <section id="topTrekContent">
+                <table class="table">
+                    {{#each items}}
+                    {{>trek_no_detail}}
+                    {{/each}}
+                </table>
+        </section>
+            {{else}}
+            <div id="best_no_treks_found">
+                No trek found yet.
+            </div>
+        {{/if}}
+    </section>
+</template>
+
+<template name="credits">
+    <section class="container">
+    <footer id="credits" class="movo_container row">
+        <h5 >Web site created by Étienne Cadic, Jérémy Maritaz and Victor Perrin - 2014</h5>
+    </footer>
+    </section>
+</template>
+
+<template name="notFound">
+    <header>
+        {{> welcome}}
+        {{> connection}}
+    </header>
+    <section id="forbidden_access" class="container">
+        <h4>Not found !</h4>
+        This page does not exist !
+    </section>
+</template>
+

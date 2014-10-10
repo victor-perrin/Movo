@@ -1,0 +1,73 @@
+
+<template name="trek">
+    {{#if isFocused _id}}
+    {{> trek_detail}}
+    {{/if}}
+    <tbody class="trek" id="trek_{{formatID _id}}">
+    <tr  class="trek_essential">
+        <td class="img_trek"><img  class="img_mini_trek" src="Movo_logo_border.png"> </td>
+        <td class="trek_name"> {{trekName}}</td>
+        <td class="trek_grade">{{grade}}</td>
+    </tr>
+    <tr class="trek_detail">
+        <td class="trek_who">by {{formatAuthor author}}</td>
+        <td class="trek_date">{{formatDate submittedOn "short" }}</td>
+        <td class="trek_achieved">{{formatBool achieved}}</td>
+    </tr>
+    </tbody>
+</template>
+
+<template name="trek_detail">
+    <section id="trek_detail_{{formatID _id}}" class="trek_focus">
+        <h4>Trek's details</h4>
+        {{#if photos}}
+        <div class="treks_photos">
+            <table>
+                <tr>
+                    {{#each photos}}
+                    {{>trek_photo}}
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+        {{else}}
+        <div class="no_photos_found">
+            No photos published yet.
+        </div>
+        {{/if}}
+        {{#if desc _id}}
+        <section class="trek_description">
+            {{desc _id}}
+        </section>
+        {{else}}
+        <section class="no_trek_description">
+            No description yet.
+        </section>
+        {{/if}}
+    </section>
+</template>
+
+<template name="trek_photo">
+    <td><img id="picture" src="{{url}}"></td>
+</template>
+
+<template name="trek_desc">
+    <p>{{description}}</p>
+</template>
+
+<template name="trek_no_detail">
+    <tr class="trek_no_detail">
+        <td class="trekName"> {{trekName}}</td>
+        <td> by {{formatAuthor author}}</td>
+        <td>{{formatDate submittedOn "short" }}</td>
+    </tr>
+</template>
+
+<template name="newTrekButton">
+    <input type="button" class="newTrekButton" value="Create a new Trek" />
+</template>
+
+<template name="updateTrekButton">
+    <input type="button" id="updateTrek" class="updateTrek" value="Update my trek">
+</template>
+

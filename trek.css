@@ -1,0 +1,29 @@
+.myTrek :hover {
+    cursor: pointer;
+    background: #f6f6f6;
+}
+
+.myTrek :active {
+    background: #d8d8d8;
+}
+
+
+.myTrek .trekname{
+    padding-left: 5%;
+    font-size: large;
+    margin: 2%;
+    color: darkgray;
+}
+
+.trek_no_detail:hover{
+    cursor:pointer;
+    background: #f6f6f6;
+}
+.trek_no_detail:active{
+    background: #d8d8d8;
+}
+
+.trek_no_detail {
+    color:darkgray;
+    font-weight:bold;
+}

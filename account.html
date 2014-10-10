@@ -1,0 +1,51 @@
+<template name="account">
+    <section class="container-fluid">
+        <section class="row">
+            <section class="col-md-6">
+                {{>myInformations}}
+            </section>
+            <section class="col-md-6">
+                {{> myPersonnalTreks}}
+            </section>
+        </section>
+    </section>
+</template>
+
+<template name="myInformations">
+    <section id="my_informations" class="movo_container">
+        <h4>Things about me</h4>
+        <section class="table-responsive">
+        <table class="table">
+            <tr>
+                <td><label for="account_name">Name:</label></td>
+                <td><input type="text" id="account_name" value="{{currentUser.profile.name}}"></td>
+            </tr>
+            <tr>
+                <td><label for="account_username">Username: </label></td>
+                <td><input type="text" id="account_username" value="{{currentUser.username}}"></td>
+            </tr>
+            <tr>
+                <td><label for="account_password">Password: </label></td>
+                <td><input type="password" id="account_password" value="{{currentUser.password}}"></td>
+            </tr>
+        </table>
+        </section>
+    </section>
+</template>
+
+<template name="myPersonnalTreks">
+    <section id="my_personnal_treks" class="movo_container">
+        <h4>Last Treks I created!</h4>
+        {{#if items}}
+        <div id="last_treks_created">
+            <table class="table">
+                {{#each items}}
+                {{>trek}}
+                {{/each}}
+            </table>
+        </div>
+        {{else}}
+            {{>letsCreateANewTrek}}
+        {{/if}}
+    </section>
+</template>

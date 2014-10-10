@@ -1,0 +1,74 @@
+<template name="trekConsulting">
+    <section class="container-fluid row">
+        {{recordId trek}}
+        {{>trek_map}}
+        {{>trek_information}}
+    </section>
+</template>
+
+<template name="trek_map">
+        <section id="gmapTrek" class="gmapTrek movo_container col-lg-8">
+            <div id="gmapDisplay">
+
+            </div>
+        </section>
+</template>
+
+<template name="trek_information">
+        <section id="trekInfo" class="trekInfo movo_container col-lg-4">
+            <h4>
+                {{getTrekName trek}}
+                <h6 class="createdBy">Created by {{getTrekAuthor trek}}</h6>
+            </h4>
+            <div id="grade" class="trekGrade">
+                {{trekGrade}}
+                {{#if isConnected}}
+                    {{#if userIsMe}}
+                        {{> updateTrekButton}}
+                    {{else}}
+                        {{#if notLike}}
+                            <input type="button" id="like" class="like" value="Hitchhike this trek !">
+                        {{else}}
+                            <input type="button" id="doNotLike" class="doNotLike" value="Get down this trek !">
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            </div>
+            <div id="commentTrek" class="commentTrek">
+                {{getTrekDescription detail}}
+            </div>
+            {{#if trekAchievement }}
+                <div class="achieved">
+                    DONE BY THE AUTHOR
+                </div>
+            {{else}}
+                <div class="notAchieved">
+                    NEVER DONE BY THE AUTHOR
+                </div>
+            {{/if}}
+            <div id="photoTrek" class="photos">
+                {{#each photos}}
+                    <div id="lookPhoto" class="photo">
+                        {{>trek_photo}}
+                    </div>
+                {{/each}}
+            </div>
+            <div id="submitted" class="submitted">
+                Submitted : {{getTrekDate trek}}
+            </div>
+        </section>
+</template>
+
+<template name="notExist">
+    <section class="container-fluid">
+        <section id="forms" class="row">
+            {{> loginForm}}
+            {{> registerForm}}
+        </section>
+    </section>
+    {{>header}}
+    <section id="forbidden_access" class="container">
+        <h4>Ouch !</h4>
+        Sorry, but this trek does not exist!
+    </section>
+</template>

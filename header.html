@@ -1,0 +1,55 @@
+<template name="welcome">
+    <div id="slogan" class="col-md-6">
+        <img id="movo_img" class="row" src="/Movo_logo_border.png">
+        <h5 id="movo_slogan" class="row">"Make your life an adventure"</h5>
+    </div>
+</template>
+
+<template name="connection">
+    <nav id="connection" class="col-md-6 col-xs-12">
+        {{>login}}
+        {{#if currentUser}}
+        <section class="welcome_name">Welcome {{currentUser.profile.name}}</section>
+        {{/if}}
+    </nav>
+</template>
+
+
+<template name="header">
+    <section class="container-fluid">
+        <header>
+            <section class="row">
+                {{> welcome}}
+                {{> connection}}
+            </section>
+            <section class="row">
+                {{> navigation}}
+            </section>
+        </header>
+    </section>
+</template>
+
+<template name="navigation">
+    {{#if currentUser}}
+        {{>newTodoButton}}
+        {{>accountButton}}
+    {{/if}}
+    {{#if isAdmin}}
+        {{#if isOnAdminPage}}
+            {{>homeButton}}
+        {{else}}
+            {{>adminButton}}
+        {{/if}}
+    {{/if}}
+</template>
+
+<template name="messages">
+    <section class="container-fluid">
+        <section class="row">
+            <section id="messageSuccess" class="successWindow messageWindow">
+            </section>
+            <section id="messageError" class="errorWindow messageWindow">
+            </section>
+        </section>
+    </section>
+</template>

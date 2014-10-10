@@ -1,0 +1,125 @@
+.formTrek {
+}
+
+#map-canvas{
+    box-shadow: 0px 0px 3px #888888;
+}
+
+#map-canvas img {
+    max-width: none;
+}
+
+.addStep {
+    background-color: white;
+    border : 0px white;
+    color: #f4ca45;
+    font-weight: bold;
+    border-bottom: 1px solid #f4ca45;
+}
+
+.finishTrek {
+    background-color: white;
+    border : 0px white;
+    color: #f4390c;
+    font-weight: bold;
+    border-bottom: 1px solid #f4390c;
+    float: right;
+}
+
+.delete {
+    background-color: white;
+    font-weight: bold;
+    border: 0px white;
+    margin-top: -4px;
+    padding-top: 0px;
+}
+
+.endStep{
+    padding-top : 15px;
+}
+
+.endTop {
+    float: right;
+    margin-right: 80px;
+    margin-top: -18px;
+}
+
+#start_text, #end_text, #nameNewTrek{
+    height : 25px;
+}
+
+#createTrek{
+    font-size: 25pt;
+    margin-left: -200px;
+}
+
+#nameTrek{
+    font-size: 16pt;
+    text-align : center;
+    position: relative;
+    min-height: 50px;
+    margin: 0%;
+    background: #faf8e1;
+    box-shadow: 0px 0px 3px darkgray;
+    border-radius: 5px 5px 0px 0px;
+    z-index: 200;
+}
+
+#trek_comment{
+    position: absolute;
+    z-index: 300;
+    display: block;
+    margin-top: 60px;
+    min-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.charLimit{
+    font-color: grey;
+    font-style: italic;
+}
+
+.registerTrek {
+    background-color: white;
+    border: 0px white;
+    color: #f4390c;
+    font-weight: bold;
+    padding:0px;
+    border-bottom: 1px solid #f4390c;
+    margin: 1%;
+}
+
+.returnTrek {
+    background-color: white;
+    color: #f4390c;
+    border: 0px white;
+    font-weight: bold;
+    border-bottom: 1px solid #f4390c;
+    padding: 0px;
+    margin: 1%;
+}
+
+
+
+.newTrekValidation {
+    border: 0.5px solid #dcdbde;
+    padding: 1%;
+    margin-left: 180px;
+    margin-top: 180px;
+    width: 450px;
+    height: 300px;
+    left: 400px;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0px 2px 2px grey;
+}
+
+.checkbox{
+    max-height: 10px;
+    float: right;
+}
+
+.buttonEndTrek{
+    margin-top : 50px;
+}

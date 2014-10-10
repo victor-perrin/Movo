@@ -1,0 +1,74 @@
+#last_actions{
+    min-height: 200px;
+}
+
+#users_connected {
+    min-height: 200px;
+}
+
+#forbidden_access {
+    margin:2%;
+    min-height: 200px;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    color: darkgray;
+}
+
+#forbidden_access h4{
+    text-align: left;
+    font-size: x-large;
+    color: dimgray;
+}
+
+.users_online tr {
+    margin: 2%;
+    padding: 1%;
+    border-bottom: 1px solid #dcdcdc;
+    width: 100%;
+}
+
+.users_online .username {
+    padding-left: 5%;
+    font-weight: bold;
+    font-size: large;
+    margin: 2%;
+    color: darkgray;
+}
+
+.users_online input {
+    background: white;
+    background-clip: border-box;
+    background-size: contain;
+    border:none;
+    width: 40px;
+}
+
+.users_online .block {
+    width: 10%;
+}
+
+.users_online .delete {
+    width: 10%;
+}
+
+.users_online .delete_button {
+    background-image: url("close15.svg");
+    background-origin: content-box;
+    background-repeat: no-repeat;
+}
+.users_online .block_button {
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-image: url("blocking.svg");
+}
+
+.users_online input:hover {
+    box-shadow: 0px 1px 2px gray;
+}
+
+.users_online input:active {
+    box-shadow: 0px 2px 5px gray;
+}
+
+

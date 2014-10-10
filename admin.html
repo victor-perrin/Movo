@@ -1,0 +1,56 @@
+<template name="admin">
+    <secion class="container">
+        <section class="row">
+            <section class="col-md-6 col-sm-12">
+                {{>last_actions}}
+            </section>
+            <section class="col-md-6 col-sm-12">
+                {{> users_connected}}
+            </section>
+        </section>
+    </secion>
+</template>
+
+<template name="last_actions">
+    <section id="last_actions" class="movo_container">
+        <h4>Last actions performed by users</h4>
+    </section>
+</template>
+
+<template name="users_online">
+    {{#if users_alive}}
+    <table class="users_online">
+    {{#each users_alive}}
+        {{>user_online}}
+    {{/each}}
+    </table>
+    {{/if}}
+</template>
+
+<template name="user_online">
+    <tr id="user_{{_id}}" class="user_online">
+        <td class="username">{{username}}</td>
+        <td class="block"><input type="button" value="" class="block_button"></td>
+        <td class="delete"><input type="button" value="" class="delete_button"></td>
+    </tr>
+</template>
+
+<template name="users_connected">
+    <section id="users_connected" class="movo_container">
+        <h4>Users actually connected</h4>
+        {{>users_online}}
+    </section>
+</template>
+
+<template name="unauthorized">
+    {{> loginForm}}
+    {{> registerForm}}
+    <header>
+        {{> welcome}}
+        {{> connection}}
+    </header>
+    <section id="forbidden_access" class="container">
+        <h4>Access Denied</h4>
+        Sorry, but you can't access this page !
+    </section>
+</template>

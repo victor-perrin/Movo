@@ -1,0 +1,49 @@
+<template name="newTodo">
+    {{>todo_page}}
+</template>
+
+<template name="todo_page">
+    <section id="todo_creation" class="container-fluid">
+        <section class="row">
+            {{>researchTodo}}
+            {{>todoMap}}
+        </section>
+    </section>
+</template>
+
+<template name="researchTodo">
+    <section class="movo_container col-md-6 col-sm-12" >
+        <h4>Add a new Todo !</h4>
+        {{#if hasPoint}}
+        {{>formTodo}}
+        {{else}}
+        {{>search_field}}
+        {{/if}}
+    </section>
+</template>
+
+<template name="search_field">
+    <label for="search_todo">Place  </label><input type="search" id="search_todo"/>
+</template>
+
+<template name="todoMap">
+    <section id="todo-map-canvas" class="col-md-6 col-sm-12">
+    </section>
+</template>
+
+<template name="formTodo">
+    <form id="form_todo" action="" class="col-md-12 col-sm-12">
+        <fieldset>
+                    <label for="todo_name" class="col-md-12 col-sm-12">Name </label>
+                    <input id="todo_name" class="col-md-12 col-sm-12" type="text" placeholder="Type your Todo's name">
+                    <label for="todo_details" class="col-md-12 col-sm-12">Description </label>
+                    <textarea id="todo_details" class="col-md-12 col-sm-12" placeholder="Add some details to make people want to visit this amazing place "></textarea>
+                    <label for="todo_web" class="col-md-12 col-sm-12" >Website (Optionnal)</label>
+                    <input id="todo_web" class="col-md-12 col-sm-12" type="text" placeholder="Enter some website related to the place">
+                    <label for="todo_img" class="col-md-12 col-sm-12" >Image (Optionnal)</label>
+                    <input id="todo_img" class="col-md-12 col-sm-12" type="text" placeholder="Add a image url">
+        </fieldset>
+        <input type="button" id="todo_submit" value="Save">
+        <input type="button" id="todo_cancel" value="Cancel">
+    </form>
+</template>

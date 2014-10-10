@@ -1,0 +1,91 @@
+<template name="login">
+    {{#if isLoggedIn}}
+    <input type="button" id="logout" value="Log out"/>
+    {{else}}
+    <input type="button" id="register" value="Register"/>
+    <input type="button" id="signin" value="Sign in"/>
+    {{/if}}
+</template>
+
+
+<template name="adminButton">
+    <input type="button" id="adminButton" value="Admin Pannel" />
+</template>
+
+<template name="homeButton">
+    <input type="button" id="homeButton" value="Home" />
+</template>
+
+<template name="newTodoButton">
+    <input type="button" id="todoButton" value="Create Todo" />
+</template>
+
+<template name="accountButton">
+    <input type="button" id="accountButton" value="Account" />
+</template>
+
+
+<template name="loginForm">
+    <form id="login-form">
+        <fieldset>
+            <legend>Sign in</legend>
+            <div>
+                <label title="e-mail" for="login-email">E-mail</label><br/>
+                <input type="email" id="login-email" /><br/>
+                <label title="e-mail" for="login-password">Password</label><br/>
+                <input type="password" id="login-password" /><br/>
+                <p id="login-error" class="error-message"></p>
+                <input type="submit" id="login-button" class="login-button" value="Sign in" />
+                <input type="button" id="close_login_form" class="login-button" value="Close"/>
+            </div>
+        </fieldset>
+    </form>
+</template>
+
+<template name="registerForm">
+    <section class="container-fluid">
+        <form id="register-form" class="movo_container" action="action" >
+            <fieldset>
+                <h4>Register</h4>
+                <div class="container">
+                    <section class="row">
+                        <label title="username" for="account-username">Username</label>
+                    </section>
+                    <section class="row">
+                        <input type="text" id="account-username" />
+                        {{#if isValidUsername}}
+                        <section class="field_valid">OK</section>
+                        {{else}}
+                        <section class="field_not_valid">*</section>
+                        {{/if}}
+                    </section>
+                    <section class="row">
+                        <label title="e-mail" for="account-email">E-mail</label>
+                    </section>
+                    <section class="row">
+                        <input type="email" id="account-email" />
+                        {{#if isValidEmail}}
+                        <section class="field_valid">OK</section>
+                        {{else}}
+                        <section class="field_not_valid">*</section>
+                        {{/if}}
+                    </section>
+                    <section class="row">
+                        <label title="e-mail" for="account-password">Password</label><br/>
+                    </section>
+                    <section class="row">
+                        <input type="password" id="account-password" />
+                        {{#if isValidPassword}}
+                        <section class="field_valid">OK</section>
+                        {{else}}
+                        <section class="field_not_valid">*</section>
+                        {{/if}}
+                    </section>
+                    <p id="register-error" class="error-message"></p>
+                    <input type="submit" id="create_account" class="login-button {{allFieldsOK}}" value="Create a new account" />
+                    <input type="button" id="close_account_form" class="login-button" value="Close"/>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</template>

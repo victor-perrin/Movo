@@ -1,0 +1,8 @@
+{
+  "packages": {
+    "googlemaps": {},
+    "iron-router": {},
+    "moment": {},
+    "user-status": {}
+  }
+}

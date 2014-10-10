@@ -1,0 +1,47 @@
+#todo-map-canvas {
+    box-shadow: 0px 0px 5px darkgray;
+    cursor:pointer;
+}
+
+#todo-map-canvas img {
+    max-width: none;
+}
+
+#todo-map-canvas img :hover {
+    cursor:pointer;
+}
+
+#search_todo {
+    height: 25px;
+    margin: 1%;
+}
+
+#todo_creation input {
+    height:25px;
+}
+
+#todo_submit, #todo_cancel {
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    float:right;
+}
+
+#todo_submit:hover, #todo_cancel:hover{
+    border: none;
+    border-bottom: 1px solid darkslategrey;
+}
+
+#todo_submit:active, #todo_cancel:active {
+    border: none;
+    border-bottom: 2px solid darkslategrey;
+    background: #f7f7f7;
+}
+
+.todo_img {
+    width: 25px;
+    height: 25px;
+    background-clip: content-box;
+    background-size: cover;
+    border-radius: 25px;
+}

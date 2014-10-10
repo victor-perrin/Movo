@@ -1,0 +1,129 @@
+<template name="updateTrek">
+    {{recordIdUpdate trek}}
+    {{#each saveStep}}
+        {{setStepsUpdate}}
+    {{/each}}
+
+    <section class="container-fluid">
+        <section class="movo_container col-lg-3">
+            <h4>
+                Name : {{> inputNewTrekUpdate}}
+            </h4>
+            <div id="form_trek">
+                {{>steps_list_update}}
+            </div>
+        </section>
+        <section class="col-lg-9">
+            {{> nameOfTrekUpdate }}
+            {{> mapCanvasUpdate}}
+            {{#if notFinish}}
+            {{else}}
+                {{> commentTrekUpdate}}
+            {{/if}}
+        </section>
+    </section>
+</template>
+
+<template name="inputNewTrekUpdate">
+    <input type="text" id="nameNewTrekUpdate" class="nameNewTrek" maxlength="30" value="{{getTrekName trek}}" />
+</template>
+
+<template name="steps_list_update">
+    <ul id="steps">
+        {{#each steps}}
+            {{#if is_start}}
+                {{>startUpdate}}
+            {{else}}
+                {{#if is_end}}
+                    {{>endUpdate}}
+                {{else}}
+                    {{>stepUpdate}}
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    </ul>
+</template>
+
+<template name="startUpdate">
+    <li>Start :</li>
+    {{>step_field_update}}
+</template>
+
+<template name="stepUpdate">
+    <li>Step :</li>
+    {{>step_field_update}}
+
+    {{#if notFinish}}
+        <input type="button" value="X" class="delete" id="del">
+    {{/if}}
+</template>
+
+<template name="step_field_update">
+    <input type="text" id="{{number}}" value="{{stepAddr}}" style="height: 25px;"/>
+    {{>step_results_update}}
+</template>
+
+<template name="step_results_update">
+    {{#if items}}
+    <div id="treks_found">
+        <table>
+            {{#each items}}
+                {{>trek}}
+            {{/each}}
+        </table>
+    </div>
+    {{/if}}
+</template>
+
+<template name="endUpdate">
+    <div class="endStep">
+        {{>add_step_update}}
+        <div class="endBottom">
+            <li>End :</li>
+            {{>step_field_update}}
+            <input type="button" value="Finishing line !" id="finishTrek" class="finishTrek">
+        </div>
+    </div>
+</template>
+
+<template name="add_step_update">
+    {{#if notLimit}}
+        {{#if notFinish}}
+            <div class="endTop">
+                <input type="button" value="Add step" class="addStep">
+            </div>
+        {{/if}}
+    {{/if}}
+</template>
+
+<template name="nameOfTrekUpdate">
+    <section class="text-center">
+        <h4 id="nameTrek" class="col-lg-12"> {{nameUpdateTrek}} </h4>
+    </section>
+</template>
+
+<template name="mapCanvasUpdate">
+    <div id="map-canvas-update" class="col-lg-12">
+
+    </div>
+</template>
+
+<template name="commentTrekUpdate">
+    <section class="container">
+        <section id="trek_comment" class="movo_container col-lg-8 ">
+            <h4>Detail your trek :</h4>
+            <textarea id="commentTrekUpdate" class="commentTrek col-lg-8" maxlength="230">
+                {{getTrekDescription detail}}
+            </textarea>
+            <label class="charLimit">(max. 230 char.)</label>
+
+            <section class="col-lg-12">
+                <div class="checkbox">
+                    <input type="checkbox" id="achievementUpdate" checked="{{isChecked}}"/> I have done this trek !
+                </div>
+                <input type="button" value="<< return" class="returnTrek col-lg-6" id="returnTrek"/>
+                <input type="button" value="Update the trek ! " class="registerTrek col-lg-6" id="registerTrek"/>
+            </section>
+        </section>
+    </section>
+</template>
