@@ -117,9 +117,10 @@ Template.researchTodo.hasPoint = function() {
 Template.formTodo.events({
     'click #todo_submit' : function() {
         var todo_loc = Session.get('marker');
+        console.log("Todo loc = ");
         console.log(todo_loc);
 
-        Meteor.call('addTodo', todo_loc.k, todo_loc.A,
+        Meteor.call('addTodo', todo_loc.k, todo_loc.B,
             $("#todo_name").val(), $("#todo_details").val(),
             $("#todo_web").val(), $("#todo_img").val(),
             Meteor.user()._id, function(err, result) {

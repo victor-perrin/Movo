@@ -195,6 +195,7 @@ Meteor.startup(function () {
     var stepId2 = new Meteor.Collection.ObjectID()._str;
     var stepId3 = new Meteor.Collection.ObjectID()._str;
     var stepId4 = new Meteor.Collection.ObjectID()._str;
+    var stepId5 = new Meteor.Collection.ObjectID()._str;
 
 var victorId =
     Accounts.createUser({
@@ -246,6 +247,7 @@ var jeremId =
     StepSave.insert({_id : stepId2, trekId : trekId1, addr : "Lyon, France", nbr : 2});
     StepSave.insert({_id : stepId3, trekId : trekId1, addr : "Nice, France", nbr : 3});
     StepSave.insert({_id : stepId4, trekId : trekId2, addr : "Caen, France", nbr : 1});
+    StepSave.insert({_id : stepId5, trekID : trekId2, addr : "Lille, France", nbr : 1});
 
     Steps.remove({});
     Steps.insert({addr : "", nbr : 1});
